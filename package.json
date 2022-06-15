@@ -8,6 +8,8 @@
     "@capacitor/haptics": "1.1.4",
     "@capacitor/keyboard": "1.2.2",
     "@capacitor/status-bar": "1.0.8",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "@ionic/react": "^6.0.0",
     "@ionic/react-router": "^6.0.0",
     "@testing-library/jest-dom": "^5.11.9",
@@ -25,6 +27,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.0",
+    "tailwindcss": "^3.1.3",
+    "twin.macro": "^2.8.2",
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
@@ -41,9 +45,11 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "ionic:build": "react-app-rewired build",
+    "ionic:serve": "react-app-rewired start",
+    "test": "react-app-rewired test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -65,7 +71,12 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "3.5.1"
+    "@capacitor/cli": "3.5.1",
+    "@emotion/babel-plugin": "^11.9.2",
+    "babel-plugin-twin": "^1.0.2",
+    "react-app-rewired": "^2.2.1",
+    "typescript-styled-plugin": "^0.18.2",
+    "typings": "^2.1.1"
   },
   "description": "An Ionic project"
 }

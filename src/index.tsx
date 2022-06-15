@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import GlobalStyles from '../src/theme/GlobalStyles'
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyles/>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
