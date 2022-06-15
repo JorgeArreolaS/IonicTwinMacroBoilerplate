@@ -21,6 +21,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import List, { SubPages } from './pages/List';
 
 setupIonicReact();
 
@@ -28,12 +29,10 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
+        <Route {...SubPages.route} />
+        <Route {...List.route} />
+        <Route exact path="/home" component={Home}/>
+        <Route exact path="/"children= { <Redirect to="/home" /> }/>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
