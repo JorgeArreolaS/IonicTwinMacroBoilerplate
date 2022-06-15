@@ -1,0 +1,7 @@
+{
+  "name": "twin-2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
