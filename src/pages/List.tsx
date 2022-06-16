@@ -1,49 +1,40 @@
 import { css } from '@emotion/react';
 import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import Layout from 'components/layout';
 import { home } from 'ionicons/icons'
-import { Page } from '../utils/RouterUtils';
+import { Page } from 'utils/RouterUtils';
 
 export const SubPages = Page<'/mylist/:id'>({
   path: '/mylist/:id',
   route: {
     exact: false,
-  }
+  },
 }, ({ match }) => {
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton />
-          </IonButtons>
-          <IonTitle>Item <span tw="text-blue-500">{match.params.id}</span></IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank2</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
-        <div tw=" m-5 ">
-          <h1 tw=" text-green-300 ">Testing Content</h1>
-          <pre>{
-            JSON.stringify(match, null, 2)
-          }</pre>
-        </div>
-
-      </IonContent>
-    </IonPage>
+    <Layout 
+      template="default"
+      options={{
+        title: <>Hola: <span tw=" text-blue-500 ">{match.params.id}</span></>,
+      }}
+    >
+      <div tw=" m-5 ">
+        <h1 tw=" text-green-300 ">Testing Content</h1>
+        <pre>{
+          JSON.stringify(match, null, 2)
+        }</pre>
+      </div>
+    </Layout>
   );
 });
 
-export default Page<'/list'>({
+const List = Page<'/list'>({
   path: '/list',
   route: {
     exact: true,
+  },
+  sub: {
+    subpage: SubPages
   }
 }, ({ history }) => {
 
@@ -87,3 +78,7 @@ export default Page<'/list'>({
     </IonPage>
   );
 });
+
+console.log(List)
+
+export default List

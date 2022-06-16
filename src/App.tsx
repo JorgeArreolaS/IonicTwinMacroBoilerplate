@@ -22,20 +22,29 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import List, { SubPages } from './pages/List';
+import { GetSub } from 'utils/RouterUtils';
 
 setupIonicReact();
 
-const App: React.FC = () => (
+const App: React.FC = () => { 
+  // console.log(List.renderRoutes())
+  // <GetSub e={SubPages as any}/>
+  // <GetSub e={List}/>
+  return (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route {...SubPages.route} />
-        <Route {...List.route} />
+        {
+          [List, SubPages].map( (a: any) => (
+            <Route {...a.route} key={a.path}/>
+          ) )
+        }
         <Route exact path="/home" component={Home}/>
         <Route exact path="/"children= { <Redirect to="/home" /> }/>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
+) };
+// <Route {...SubPages.route} />
 
 export default App;
